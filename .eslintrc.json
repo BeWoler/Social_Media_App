@@ -1,3 +1,58 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "plugins": [
+    "prettier",
+    "import"
+  ],
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true
+      }
+    ],
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          [
+            "builtin",
+            "external"
+          ],
+          "internal",
+          [
+            "parent",
+            "sibling",
+            "index"
+          ]
+        ],
+        "newlines-between": "always"
+      }
+    ],
+    "arrow-spacing": "error",
+    "newline-before-return": "error",
+    "newline-after-var": "error",
+    "prefer-arrow-callback": "error",
+    "newline-per-chained-call": [
+      "error", 
+      {
+        "ignoreChainWithDepth": 5 
+      }
+    ],
+    "object-curly-spacing": [
+      "error",
+      "always",
+      {
+        "arraysInObjects": true
+      }
+    ]
+  }
 }
