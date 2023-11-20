@@ -59,6 +59,10 @@ module.exports = {
         'primary-gradient': 'var(--primaryGradient)',
         'primary-gradient-revert': 'var(--primaryGradientRevert)',
       },
+      boxShadow: {
+        'primary-shadow': 'var(--primaryShadow)',
+        'secondary-shadow': 'var(--secondaryShadow)',
+      },
     },
   },
   plugins: [require('tailwindcss-animate')],

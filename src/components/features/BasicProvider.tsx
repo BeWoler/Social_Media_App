@@ -1,12 +1,15 @@
 import React from 'react';
 
-import { Header } from '../widgets';
+import { Header, Sidebar } from '../widgets';
 
 const BasicProvider = ({ children }: { children: React.ReactNode }) => {
   return (
     <React.Fragment>
       <Header />
-      <main>{children}</main>
+      <Sidebar />
+      <main className="flex justify-center mx-56">
+        <div>{children}</div>
+      </main>
     </React.Fragment>
   );
 };

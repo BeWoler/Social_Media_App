@@ -8,13 +8,17 @@
   --background-end-rgb: 255, 255, 255;
 
   --dark-rgb: 0, 0, 0;
+  --dark-2: #09090A;
   --light-rgb: 255, 255, 255;
 
   --primaryGradient: linear-gradient(90deg, #5D5FEF, #877EFF);
   --primaryGradientRevert: linear-gradient(#5D5FEF, #877EFF);
+
+  --primaryShadow: 0px 0px 15px 0px #877EFF;
+  --secondaryShadow: 0px 1px 15px #877EFF;
 }
 
 body {
   color: rgb(var(--light-rgb));
-  background: rgb(var(--dark-rgb));
+  background: var(--dark-2);
 }
