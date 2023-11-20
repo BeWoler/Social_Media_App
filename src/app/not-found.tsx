@@ -10,13 +10,13 @@ export default function NotFound() {
   useEffect(() => {
     const timer = setInterval(() => setTime((t) => t - 1), 1000);
 
-    setTimeout(() => push('/'), 5000);
+    const timeout = setTimeout(() => push('/'), 5000);
 
     return () => {
       clearInterval(timer);
-      clearTimeout(setTimeout(() => push('/'), 5000));
+      clearTimeout(timeout);
     };
-  }, [time, push]);
+  }, [push]);
 
   return (
     <div className="flex flex-col mt-auto h-screen justify-center items-center gap-4">

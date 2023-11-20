@@ -5,6 +5,7 @@ import {
   ComputerDesktopIcon,
   MagnifyingGlassCircleIcon,
   ShoppingBagIcon,
+  DocumentTextIcon,
 } from '@heroicons/react/24/outline';
 
 const iconSize = {
@@ -23,7 +24,6 @@ export const iconsArr = [
     width={iconSize.width}
     height={iconSize.height}
   />,
-  <CogIcon key={'settings'} width={iconSize.width} height={iconSize.height} />,
   <ComputerDesktopIcon
     key={'people'}
     width={iconSize.width}
@@ -39,4 +39,10 @@ export const iconsArr = [
     width={iconSize.width}
     height={iconSize.height}
   />,
+  <DocumentTextIcon
+    key={'create post'}
+    width={iconSize.width}
+    height={iconSize.height}
+  />,
+  <CogIcon key={'settings'} width={iconSize.width} height={iconSize.height} />,
 ];

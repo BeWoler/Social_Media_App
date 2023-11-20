@@ -14,10 +14,6 @@ export const links = [
     path: routes.friends,
   },
   {
-    title: 'Settings',
-    path: routes.settings,
-  },
-  {
     title: 'People',
     path: routes.people,
   },
@@ -28,5 +24,13 @@ export const links = [
   {
     title: 'Market',
     path: routes.market,
+  },
+  {
+    title: 'Create Post',
+    path: routes.createPost,
+  },
+  {
+    title: 'Settings',
+    path: routes.settings,
   },
 ];

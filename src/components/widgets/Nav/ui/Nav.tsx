@@ -35,7 +35,7 @@ const Nav = ({
 
   return (
     <nav className="flex w-full h-full justify-center">
-      <ul className="flex flex-col gap-12 py-7">{navLinks()}</ul>
+      <ul className="flex flex-col gap-7 py-7">{navLinks()}</ul>
     </nav>
   );
 };
