@@ -6,7 +6,7 @@ import { Avatar } from '@/components/shared';
 
 const Header = () => {
   return (
-    <header className="flex w-full p-4 bg-dark-3 mb-10 items-center justify-between shadow-secondary-shadow">
+    <header className="fixed z-10 flex w-full p-4 bg-dark-3 mb-10 items-center justify-between shadow-secondary-shadow">
       <Link href={'/'} className="flex items-center gap-3">
         <AtSymbolIcon width={50} height={50} color="#877EFF" />
         <div className="text-4xl">Social Media App</div>

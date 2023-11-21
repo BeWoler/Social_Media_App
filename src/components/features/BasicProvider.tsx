@@ -7,7 +7,7 @@ const BasicProvider = ({ children }: { children: React.ReactNode }) => {
     <React.Fragment>
       <Header />
       <Sidebar />
-      <main className="flex justify-center mx-56 mb-5">
+      <main className="flex justify-center mx-56 mb-10 pt-32">
         <div>{children}</div>
       </main>
     </React.Fragment>
