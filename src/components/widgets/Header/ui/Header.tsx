@@ -6,7 +6,7 @@ import { useSession, signIn, signOut } from 'next-auth/react';
 
 import { Avatar } from '@/components/shared';
 import ButtonDefault from '@/components/ui/Button/ButtonDefault';
-import AuthLoader from '@/components/features/AuthLoader';
+import { AuthLoader } from '@/components/features';
 
 const Header = () => {
   const { data: session } = useSession();
