@@ -1,10 +1,8 @@
 import {
   Bars3BottomLeftIcon,
-  UserGroupIcon,
   CogIcon,
   ComputerDesktopIcon,
   MagnifyingGlassCircleIcon,
-  ShoppingBagIcon,
   DocumentTextIcon,
 } from '@heroicons/react/24/outline';
 
@@ -19,11 +17,6 @@ export const iconsArr = [
     width={iconSize.width}
     height={iconSize.height}
   />,
-  <UserGroupIcon
-    key={'friends'}
-    width={iconSize.width}
-    height={iconSize.height}
-  />,
   <ComputerDesktopIcon
     key={'people'}
     width={iconSize.width}
@@ -31,11 +24,6 @@ export const iconsArr = [
   />,
   <MagnifyingGlassCircleIcon
     key={'search'}
-    width={iconSize.width}
-    height={iconSize.height}
-  />,
-  <ShoppingBagIcon
-    key={'market'}
     width={iconSize.width}
     height={iconSize.height}
   />,

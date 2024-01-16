@@ -26,7 +26,7 @@ const Nav = ({
                 : 'hover:text-primary-500 '
             }`}
           >
-            {icons[i - 1]}
+            {icons[i]}
             {link.title}
           </Link>
         );

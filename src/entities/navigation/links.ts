@@ -2,16 +2,8 @@ import { routes } from './routes';
 
 export const links = [
   {
-    title: 'Profile',
-    path: routes.profile,
-  },
-  {
     title: 'Home',
     path: routes.main,
-  },
-  {
-    title: 'Friends',
-    path: routes.friends,
   },
   {
     title: 'People',
@@ -20,10 +12,6 @@ export const links = [
   {
     title: 'Search',
     path: routes.search,
-  },
-  {
-    title: 'Market',
-    path: routes.market,
   },
   {
     title: 'Create Post',

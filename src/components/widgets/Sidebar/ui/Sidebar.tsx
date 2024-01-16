@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { links } from '@/entities/navigation/links';
-import { iconsArr } from '@/entities/navigation/icons';
+import { iconsArr } from '@/components/ui';
 
 import { Nav } from '../..';
 

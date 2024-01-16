@@ -19,14 +19,14 @@ const Header = () => {
       </Link>
       <AuthLoader>
         {session ? (
-          <Link href={'/profile'} className="flex gap-3">
+          <div className="flex gap-3">
             <Avatar
               url={session.user?.image as string}
               name={session.user?.name as string}
               email={session.user?.email as string}
             />
             <ButtonDefault title="Sign Out" click={() => signOut()} />
-          </Link>
+          </div>
         ) : (
           <ButtonDefault title="Sign In" click={() => signIn('github')} />
         )}
