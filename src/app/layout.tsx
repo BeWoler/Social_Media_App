@@ -3,6 +3,7 @@ import { Space_Grotesk } from 'next/font/google';
 
 import './globals.css';
 import { BasicProvider } from '@/components/features';
+import SessionWrapper from '@/components/features/SessionWrapper';
 
 const inter = Space_Grotesk({ subsets: ['latin'] });
 
@@ -17,10 +18,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <BasicProvider>{children}</BasicProvider>
-      </body>
-    </html>
+    <SessionWrapper>
+      <html lang="en">
+        <body className={inter.className}>
+          <BasicProvider>{children}</BasicProvider>
+        </body>
+      </html>
+    </SessionWrapper>
   );
 }

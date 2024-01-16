@@ -3,11 +3,7 @@ import Image from 'next/image';
 
 import { TAvatar } from '../types/avatar.type';
 
-const Avatar = ({
-  url = 'https://github.com/shadcn.png',
-  name,
-  email,
-}: TAvatar) => {
+const Avatar = ({ url, name, email }: TAvatar) => {
   if (!url) {
     return (
       <div className="flex items-center gap-4">
