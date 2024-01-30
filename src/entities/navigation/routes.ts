@@ -1,6 +1,6 @@
 export const routes = {
   main: '/',
-  createPost: '/post',
+  createPost: '/post/create',
   settings: '/settings',
   people: '/people',
   search: '/search',

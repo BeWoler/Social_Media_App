@@ -3,5 +3,5 @@ export type TButton = {
   subClass?: string;
   authIcon?: 'github';
   title: string;
-  click: () => void;
+  click?: () => void;
 };

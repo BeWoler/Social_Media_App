@@ -1,5 +1,6 @@
 import Avatar from './Avatar/ui/Avatar';
 import Spinner from './Spinner/ui/Spinner';
-import Post from './Post/ui/Post';
+import ShortPost from './Post/ui/ShortPost';
+import FullPost from './Post/ui/FullPost';
 
-export { Avatar, Spinner, Post };
+export { Avatar, Spinner, ShortPost, FullPost };
