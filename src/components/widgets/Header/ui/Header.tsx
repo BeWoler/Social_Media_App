@@ -5,8 +5,8 @@ import Link from 'next/link';
 import { useSession, signIn, signOut } from 'next-auth/react';
 
 import { Avatar } from '@/components/shared';
-import ButtonDefault from '@/components/ui/Button/ButtonDefault';
 import { AuthLoader } from '@/components/features';
+import { Button } from '@/components/ui';
 
 const Header = () => {
   const { data: session } = useSession();
@@ -25,10 +25,19 @@ const Header = () => {
               name={session.user?.name as string}
               email={session.user?.email as string}
             />
-            <ButtonDefault title="Sign Out" click={() => signOut()} />
+            <Button
+              variant="default"
+              title="Sign Out"
+              click={() => signOut()}
+            />
           </div>
         ) : (
-          <ButtonDefault title="Sign In" click={() => signIn('github')} />
+          <Button
+            variant="auth"
+            authIcon="github"
+            title="Sign In"
+            click={() => signIn('github')}
+          />
         )}
       </AuthLoader>
     </header>

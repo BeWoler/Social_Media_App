@@ -5,8 +5,9 @@ import React from 'react';
 import { TButton } from './types/button.type';
 import ButtonDefault from './ButtonDefault';
 import ButtonGradient from './ButtonGradient';
+import ButtonAuth from './ButtonAuth';
 
-const Button = ({ variant, title, click, subClass }: TButton) => {
+const Button = ({ variant, title, click, subClass, authIcon }: TButton) => {
   const declareBtnVariant = (title: string): JSX.Element => {
     switch (variant) {
       case 'default':
@@ -16,6 +17,15 @@ const Button = ({ variant, title, click, subClass }: TButton) => {
       case 'gradient':
         return (
           <ButtonGradient title={title} click={click} subClass={subClass} />
+        );
+      case 'auth':
+        return (
+          <ButtonAuth
+            title={title}
+            click={click}
+            subClass={subClass}
+            authIcon={authIcon}
+          />
         );
       default:
         return (

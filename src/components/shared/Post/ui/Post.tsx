@@ -1,5 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 
 import { TPost } from '../types/post.type';
 
@@ -16,8 +18,16 @@ const Post = (post: TPost) => {
             {post.author}
           </Link>
         </div>
+        <div className="p-3 flex self-center">
+          <Image
+            src={post.image as string | StaticImport}
+            width={200}
+            height={100}
+            alt="pic"
+          />
+        </div>
         <div>
-          <p className="p-2">{post.content}</p>
+          <p className="p-2">{post.description}</p>
         </div>
       </div>
       <div className="flex justify-end p-2 text-sm text-primary-600">
