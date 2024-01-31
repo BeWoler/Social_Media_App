@@ -10,7 +10,7 @@ const BasicProvider = ({ children }: { children: React.ReactNode }) => {
         <Header />
         <Sidebar />
         <main className="flex justify-center mx-56 mb-10 pt-32">
-          <div>{children}</div>
+          <div className="w-full flex justify-center">{children}</div>
         </main>
       </SessionWrapper>
     </TanStackProvider>

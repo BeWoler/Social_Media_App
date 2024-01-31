@@ -1,7 +1,9 @@
 import React from 'react';
 
+import { CreatePostPage } from '@/components/pages';
+
 const CreatePost = () => {
-  return <div>page</div>;
+  return <CreatePostPage />;
 };
 
 export default CreatePost;

@@ -21,7 +21,7 @@ const FullPost = () => {
   if (isFetching) return <Spinner />;
 
   return (
-    <div className="bg-dark-4 p-3 rounded-xl shadow-secondary-shadow  gap-4 min-w-[375px] duration-500 cursor-default">
+    <div className="bg-dark-4 p-3 rounded-xl shadow-secondary-shadow gap-4 min-w-[375px] duration-500 cursor-default">
       <div className="border-b-2 border-dark-4 w-full flex items-center justify-between">
         <h1 className="p-2 text-3xl">{data?.title}</h1>
         <Link

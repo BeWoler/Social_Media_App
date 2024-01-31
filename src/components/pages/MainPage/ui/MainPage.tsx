@@ -18,7 +18,7 @@ const MainPage = () => {
       {isFetching ? (
         <Spinner />
       ) : (
-        <div className="flex flex-col gap-14">
+        <div className="flex flex-col gap-14 items-center">
           {data?.map((post: TPost) => <ShortPost key={post.id} {...post} />)}
         </div>
       )}
