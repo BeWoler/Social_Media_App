@@ -1,16 +1,22 @@
-class ArticlesModule {
-  private URL = 'https://fakestoreapi.com';
+import axios from 'axios';
 
-  async getArticles(limit?: number | string) {
-    return await fetch(`${this.URL}/products?limit=${limit ? limit : '0'}`, {
-      method: 'GET',
-    }).then((res) => res.json());
+import { IArticle, INewArticle } from './interfaces/article.interface';
+
+class ArticlesModule {
+  private URL = process.env.NEXT_PUBLIC_API_URL;
+
+  async getArticles(): Promise<IArticle[]> {
+    return await axios.get(`${this.URL}/post`);
   }
 
-  async getArticleById(id: string | number) {
-    return await fetch(`${this.URL}/products/${id}`, { method: 'GET' }).then(
-      (res) => res.json(),
-    );
+  async getArticleById(id: string | number): Promise<IArticle> {
+    return await axios.get(`${this.URL}/post/${id}`);
+  }
+
+  async createArticle(body: INewArticle): Promise<IArticle> {
+    return await axios.post(`${this.URL}/post`, {
+      ...body,
+    });
   }
 }
 

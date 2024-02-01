@@ -3,7 +3,7 @@
 import React from 'react';
 import { useSession } from 'next-auth/react';
 
-import { useAuth } from '@/hooks/useAuth';
+import { useAuth } from '@/hooks';
 
 const AuthChecker = ({ children }: { children: React.ReactNode }) => {
   const setAuth = useAuth((store) => store.setAuth);

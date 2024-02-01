@@ -1,22 +1,17 @@
 'use client';
 
 import React from 'react';
-import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'next/navigation';
-import { StaticImport } from 'next/dist/shared/lib/get-img-props';
-import Image from 'next/image';
 import Link from 'next/link';
+import Markdown from 'react-markdown';
 
-import { ArticlesService } from '@/app/api/services';
+import { useSingleArticle } from '@/hooks/query/useArticles';
 
 import { Spinner } from '../..';
 
 const FullPost = () => {
   const params = useParams();
-  const { isFetching, data } = useQuery({
-    queryKey: ['single articles'],
-    queryFn: () => ArticlesService.getArticleById(params.id as string),
-  });
+  const { isFetching, data } = useSingleArticle(params.id as string);
 
   if (isFetching) return <Spinner />;
 
@@ -31,17 +26,9 @@ const FullPost = () => {
           {data?.author || 'BeWoler'}
         </Link>
       </div>
-      <div className="p-3 flex justify-center">
-        <Image
-          src={data?.image as string | StaticImport}
-          width={300}
-          height={200}
-          alt="pic"
-        />
-      </div>
-      <div className="text-lg">{data?.description}</div>
+      <Markdown className="text-lg">{data?.description}</Markdown>
       <div className="flex justify-end p-2 text-sm text-primary-600">
-        <p>{data?.date}</p>
+        <p>{data?.date || '01.01.2024'}</p>
       </div>
     </div>
   );

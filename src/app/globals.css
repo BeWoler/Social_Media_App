@@ -9,6 +9,8 @@
 
   --dark-rgb: 0, 0, 0;
   --dark-2: #09090A;
+  --dark-3: #101012;
+  --dark-4: #1F1F22;
   --light-rgb: 255, 255, 255;
 
   --primaryGradient: linear-gradient(90deg, #5D5FEF, #877EFF);
@@ -20,5 +22,5 @@
 
 body {
   color: rgb(var(--light-rgb));
-  background: var(--dark-2);
+  background: var(--dark-3);
 }
