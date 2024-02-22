@@ -1,9 +1,19 @@
 export interface IArticle {
   id: string | number;
-  author: string;
+  user: {
+    id: string;
+    name: string;
+    password: null;
+    email: string;
+    image: string;
+  };
   title: string;
   description: string;
-  date?: string;
+  createdAt?: string;
 }
 
-export interface INewArticle extends Omit<IArticle, 'id'> {}
+export interface INewArticle {
+  user: string;
+  title: string;
+  description: string;
+}

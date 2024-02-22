@@ -11,24 +11,30 @@ import { Spinner } from '../..';
 
 const FullPost = () => {
   const params = useParams();
-  const { isFetching, data } = useSingleArticle(params.id as string);
+  const { isFetching, data: post } = useSingleArticle(params.id as string);
 
   if (isFetching) return <Spinner />;
+
+  const postDate = post?.createdAt
+    ?.replaceAll('-', '.')
+    .split('.')
+    .toReversed()
+    .join('.');
 
   return (
     <div className="bg-dark-4 p-3 rounded-xl shadow-secondary-shadow gap-4 min-w-[375px] duration-500 cursor-default">
       <div className="border-b-2 border-dark-4 w-full flex items-center justify-between">
-        <h1 className="p-2 text-3xl">{data?.title}</h1>
+        <h1 className="p-2 text-3xl">{post?.title}</h1>
         <Link
-          href={`/profile/${data?.author}`}
+          href={`/profile/${post?.user.id}`}
           className="text-primary-600 text-sm"
         >
-          {data?.author || 'BeWoler'}
+          {post?.user.email}
         </Link>
       </div>
-      <Markdown className="text-lg">{data?.description}</Markdown>
+      <Markdown className="text-lg">{post?.description}</Markdown>
       <div className="flex justify-end p-2 text-sm text-primary-600">
-        <p>{data?.date || '01.01.2024'}</p>
+        <p>{postDate}</p>
       </div>
     </div>
   );

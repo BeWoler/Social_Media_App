@@ -1,18 +1,18 @@
 import { useQuery } from '@tanstack/react-query';
 
-import { ArticlesService } from '@/app/api/services';
+import { articleService } from '@/app/api/services';
 import { postSingleQueryKey, postsQueryKey } from '@/constants';
 
 export const useArticles = () => {
   return useQuery({
     queryKey: [postsQueryKey],
-    queryFn: () => ArticlesService.getArticles(),
+    queryFn: () => articleService.getArticles(),
   });
 };
 
 export const useSingleArticle = (id: string) => {
   return useQuery({
     queryKey: [postSingleQueryKey],
-    queryFn: () => ArticlesService.getArticleById(id),
+    queryFn: () => articleService.getArticleById(id),
   });
 };

@@ -37,14 +37,15 @@
         "newlines-between": "always"
       }
     ],
+    "react-hooks/exhaustive-deps": "off",
     "arrow-spacing": "error",
     "newline-before-return": "error",
     "newline-after-var": "error",
     "prefer-arrow-callback": "error",
     "newline-per-chained-call": [
-      "error", 
+      "error",
       {
-        "ignoreChainWithDepth": 5 
+        "ignoreChainWithDepth": 5
       }
     ],
     "object-curly-spacing": [

@@ -1,7 +1,13 @@
 export type TPost = {
   id: string | number;
-  author?: string;
+  user: {
+    id: string;
+    name: string;
+    password: null;
+    email: string;
+    image: string;
+  };
   title: string;
   description: string;
-  date?: string;
+  createdAt?: string;
 };

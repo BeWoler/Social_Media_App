@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 import { Space_Grotesk } from 'next/font/google';
-
 import './globals.css';
+import { Suspense } from 'react';
+
+import { Spinner } from '@/components/shared';
 import { BasicProvider } from '@/components/features';
 
 const inter = Space_Grotesk({ subsets: ['latin'] });
@@ -19,7 +21,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <BasicProvider>{children}</BasicProvider>
+        <BasicProvider>
+          <Suspense fallback={<Spinner />}>{children}</Suspense>
+        </BasicProvider>
       </body>
     </html>
   );

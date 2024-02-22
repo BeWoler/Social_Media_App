@@ -3,16 +3,11 @@ import Image from 'next/image';
 
 import { TAvatar } from '../types/avatar.type';
 
-const Avatar = ({ url, name, email }: TAvatar) => {
+const Avatar = ({ url, email }: TAvatar) => {
   if (!url) {
     return (
       <div className="flex items-center gap-4">
-        <p>{name}</p>
-        <div className="relative inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-gray-100 rounded-full">
-          <span className="font-medium text-gray-600">
-            {name?.split('')[0]}
-          </span>
-        </div>
+        <p>{email}</p>
       </div>
     );
   }

@@ -1,3 +1,3 @@
-import ArticlesService from './articles.service';
+import articleService from './article.service';
 
-export { ArticlesService };
+export { articleService };

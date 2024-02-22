@@ -1,22 +1,21 @@
 'use client';
 
-import React from 'react';
+import React, { FormEvent } from 'react';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
-import { Button } from '@/components/ui';
-import { useNewArticle } from '@/hooks/query/useNewArticle';
+import { Spinner } from '@/components/shared';
+import { Button, Input } from '@/components/ui';
+import { useAuthedUser, useNewArticle } from '@/hooks';
 
 const CreatePostPage = () => {
   const [isShow, setIsShow] = React.useState<boolean>(false);
   const [markdown, setMarkdown] = React.useState<string>('');
   const titleRef = React.useRef<HTMLInputElement>(null);
 
-  const { mutate } = useNewArticle({
-    author: 'BeWoler',
-    description: markdown,
-    title: titleRef.current?.value as string,
-  });
+  const user = useAuthedUser((state) => state.user);
+
+  const { mutate, error, status } = useNewArticle();
 
   const showPreview = (markdown: string) => {
     return (
@@ -29,17 +28,37 @@ const CreatePostPage = () => {
     );
   };
 
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    mutate({
+      description: markdown,
+      title: titleRef.current?.value as string,
+      user: user.id,
+    });
+
+    if (status === 'success' || status === 'error') {
+      if (titleRef.current?.value !== undefined && markdown) {
+        titleRef.current.value = '';
+      }
+      setMarkdown('');
+    }
+  };
+
   return (
-    <div className="flex flex-col w-full bg-dark-4 p-4 min-w-[375px] rounded-xl">
-      <div className="mb-3">
-        <h2 className="text-white text-lg">Title</h2>
-        <input
-          name="title"
+    <form
+      onSubmit={status === 'pending' ? undefined : handleSubmit}
+      className="flex flex-col w-full bg-dark-4 p-4 min-w-[375px] rounded-xl"
+    >
+      <div className="mb-3 flex flex-col">
+        <Input
           ref={titleRef}
-          type="text"
           required
-          className="text-black p-2 rounded-xl w-full max-w-md"
+          name="title"
+          type="text"
           placeholder="Title"
+          inputSubClass="text-black p-2 rounded-xl w-full max-w-md"
+          label="Title"
+          labelSubClass="text-white text-lg"
         />
       </div>
       <div className="flex gap-10 text-lg text-white mb-2">
@@ -74,13 +93,22 @@ const CreatePostPage = () => {
           />
         </div>
       )}
-      <Button
-        variant="gradient"
-        title="Create"
-        subClass="self-end"
-        click={mutate}
-      />
-    </div>
+      {error && (
+        <div className="text-lg text-red">{error.response.data.message}</div>
+      )}
+      {status === 'success' && (
+        <div className="text-lg text-green-400">Success!</div>
+      )}
+      <div className="w-full flex justify-end">
+        <Button
+          variant="gradient"
+          subClass="text-lg w-[10%]"
+          title={status === 'pending' ? <Spinner /> : 'Create'}
+          disabled={status === 'pending'}
+          click={() => handleSubmit}
+        />
+      </div>
+    </form>
   );
 };
 

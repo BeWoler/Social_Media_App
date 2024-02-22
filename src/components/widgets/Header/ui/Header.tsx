@@ -2,14 +2,15 @@
 import React from 'react';
 import { AtSymbolIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
-import { useSession, signIn, signOut } from 'next-auth/react';
 
+import { useAuthedUser, useLogout } from '@/hooks';
 import { Avatar } from '@/components/shared';
-import { AuthLoader } from '@/components/features';
 import { Button } from '@/components/ui';
+import { AuthChecker } from '@/components/features';
 
 const Header = () => {
-  const { data: session } = useSession();
+  const { user, clearAuthedUser } = useAuthedUser();
+  const { mutate } = useLogout();
 
   return (
     <header className="fixed z-10 flex w-full p-4 bg-dark-3 mb-10 items-center justify-between shadow-secondary-shadow">
@@ -17,29 +18,31 @@ const Header = () => {
         <AtSymbolIcon width={50} height={50} color="#877EFF" />
         <div className="text-4xl">Social Media App</div>
       </Link>
-      <AuthLoader>
-        {session ? (
+      <AuthChecker
+        customElement={
+          <Link href={'/auth'}>
+            <Button variant="auth" title="Sign In" />
+          </Link>
+        }
+      >
+        {user.id ? (
           <div className="flex gap-3">
-            <Avatar
-              url={session.user?.image as string}
-              name={session.user?.name as string}
-              email={session.user?.email as string}
-            />
+            <Avatar url={user.image} name={user.name} email={user.email} />
             <Button
               variant="default"
               title="Sign Out"
-              click={() => signOut()}
+              click={() => {
+                mutate();
+                clearAuthedUser();
+              }}
             />
           </div>
         ) : (
-          <Button
-            variant="auth"
-            authIcon="github"
-            title="Sign In"
-            click={() => signIn('github')}
-          />
+          <Link href={'/auth'}>
+            <Button variant="auth" title="Sign In" />
+          </Link>
         )}
-      </AuthLoader>
+      </AuthChecker>
     </header>
   );
 };
